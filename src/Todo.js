@@ -1,4 +1,3 @@
-import React from 'react'
 import { IconButton, ListItem, ListItemText, Checkbox, ListItemSecondaryAction } from '@mui/material'
 import { Delete, Edit } from '@mui/icons-material'
 import useToggle from './hooks/useToggle'
