@@ -1,18 +1,18 @@
 import { useState } from "react";
 import TodoApp from "./TodoApp";
-import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 function App() {
-  const [appTheme, setAppTheme] = useState('light')
+  const [darkMode, setDarkMode] = useState(false)
   const theme = createTheme({
     palette: {
-      mode: appTheme === 'light' ? "light" : "dark",
+      mode: darkMode ? "dark" : "light",
     }
   });
 
   return (
     <ThemeProvider theme={theme}>
-      <TodoApp appTheme={appTheme} setAppTheme={setAppTheme} />
+      <TodoApp darkMode={darkMode} setDarkMode={setDarkMode} />
     </ThemeProvider>
   );
 }

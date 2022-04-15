@@ -4,9 +4,11 @@ import ToggleOnIcon from '@mui/icons-material/ToggleOn';
 import TodoList from './TodoList'
 import TodoForm from './TodoForm'
 import useTodoState from './hooks/useTodoState'
-function TodoApp({ appTheme, setAppTheme }) {
+import useToggle from './hooks/useToggle';
+function TodoApp({ darkMode, setDarkMode }) {
     const initialTodos = JSON.parse(window.localStorage.getItem("todos") || "[]")
     const { todos, addTodo, deleteTodo, toggleTodo, editTodo } = useTodoState(initialTodos)
+    const [isDark, toggle] = useToggle(darkMode)
     return (
         <Paper style={{
             padding: 0,
@@ -18,10 +20,12 @@ function TodoApp({ appTheme, setAppTheme }) {
                     <Typography color="inherit">Todos with Hooks</Typography>
                     <ListItemSecondaryAction>
                         <IconButton onClick={() => {
-                            if (appTheme === 'light') setAppTheme('dark')
-                            else setAppTheme('light')
+                            if (isDark) setDarkMode(false)
+                            else setDarkMode(true)
+                            toggle()
+
                         }}>
-                            {appTheme === 'light' ? <ToggleOffOutlinedIcon fontSize="large" style={{ color: "#eaeaea" }} /> : <ToggleOnIcon fontSize="large" />}
+                            {!isDark ? <ToggleOffOutlinedIcon fontSize="large" style={{ color: "#eaeaea" }} /> : <ToggleOnIcon fontSize="large" />}
                         </IconButton>
                     </ListItemSecondaryAction>
                 </Toolbar>
