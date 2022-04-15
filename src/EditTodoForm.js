@@ -16,7 +16,7 @@ function EditTodoForm({ editTodo, id, task, toggle }) {
                 marginLeft: '1rem',
                 width: '100%'
             }}>
-            <TextField variant="standard" value={task} onChange={handleChange} label="Edit Todo" margin="normal" fullWidth autoFocus />
+            <TextField variant="standard" value={value} onChange={handleChange} label="Edit Todo" margin="normal" fullWidth autoFocus />
             <ListItemSecondaryAction>
                 <IconButton onClick={() => toggle()} >
                     <CancelOutlinedIcon />
