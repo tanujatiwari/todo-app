@@ -1,9 +1,10 @@
 import { useState } from "react";
 import TodoApp from "./TodoApp";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useLocalStorage("darkTheme", false)
   const theme = createTheme({
     palette: {
       mode: darkMode ? "dark" : "light",
