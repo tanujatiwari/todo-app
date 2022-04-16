@@ -1,4 +1,4 @@
-import { Paper, List, ListItem, Divider, ListItemText } from "@mui/material"
+import { Paper, List, Divider } from "@mui/material"
 import Todo from "./Todo"
 function TodoList({ todos, deleteTodo, toggleTodo, editTodo }) {
     if (todos.length)

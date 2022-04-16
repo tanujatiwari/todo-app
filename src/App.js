@@ -1,4 +1,3 @@
-import { useState } from "react";
 import TodoApp from "./TodoApp";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import useLocalStorage from "./hooks/useLocalStorage";

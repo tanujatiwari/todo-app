@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import useLocalStorage from './useLocalStorage';
 
-export default initialVal => {
+function useTodoState(initialVal) {
     const [todos, setTodos] = useLocalStorage("todos", initialVal)
     return {
         todos,
@@ -22,3 +22,5 @@ export default initialVal => {
         }
     }
 }
+
+export default useTodoState
