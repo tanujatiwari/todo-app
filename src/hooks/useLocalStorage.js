@@ -10,12 +10,9 @@ function useLocalStorage(key, defaultVal) {
         }
         return val;
     })
-    const getLocalStorage = useCallback(() => {
-        window.localStorage.setItem(key, JSON.stringify(state))
-    }, [state])
     useEffect(() => {
-        getLocalStorage();
-    }, [getLocalStorage]);
+        window.localStorage.setItem(key, JSON.stringify(state))
+    }, [state]);
 
     return [state, setState]
 }
