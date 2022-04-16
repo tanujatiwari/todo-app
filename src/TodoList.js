@@ -1,3 +1,4 @@
+import React from "react"
 import { Paper, List, Divider } from "@mui/material"
 import Todo from "./Todo"
 function TodoList({ todos, deleteTodo, toggleTodo, editTodo }) {
@@ -6,7 +7,7 @@ function TodoList({ todos, deleteTodo, toggleTodo, editTodo }) {
             <Paper>
                 <List>
                     {todos.map((todo, i) => (
-                        <>
+                        <React.Fragment key={i}>
                             <Todo
                                 {...todo}
                                 key={todo.id}
@@ -15,7 +16,7 @@ function TodoList({ todos, deleteTodo, toggleTodo, editTodo }) {
                                 editTodo={editTodo}
                             />
                             {i < todos.length - 1 && <Divider />}
-                        </>
+                        </React.Fragment>
                     ))}
                 </List>
             </Paper>
